@@ -1,0 +1,18 @@
+{%extends 'home.html'%}
+
+{%block title%}Create product {%endblock%}
+
+{%block content%}
+<link rel="stylesheet" href="{{url_for('static', filename='base.css')}}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<main class="container text-center my-3">
+    <div class="container mt-1 mb-1">
+        <a class="btn btn-secondary btn-lg" href="/profile">Profile</a>
+        <a class="btn btn-secondary btn-lg"  href="/product">Create product</a>
+        <a class="btn btn-secondary btn-lg" href="/productos">Products</a>
+        <a class="btn btn-secondary btn-lg" href="/usuarios">Customers</a>
+    </div>
+      <div>{{ graph_html | safe }}</div>
+</main>
+
+{%endblock%}

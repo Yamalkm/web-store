@@ -1,0 +1,22 @@
+body {
+    background-color: #f2f2f2; /* Color gris claro */
+}
+#div {
+  clear:both;
+  width:500px
+}
+.img{
+   display:block;
+   width:150px;
+   height: 210px;
+   float:right;
+}
+.cart-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

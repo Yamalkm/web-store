@@ -1,0 +1,25 @@
+{%extends 'home.html'%}
+
+{%block title%}Create product {%endblock%}
+
+{%block content%}
+         <link rel="stylesheet" href="{{ url_for('static', filename='perfil.css') }}">
+
+</head>
+<body>
+<h3 class="text-center">Thanks for your purchase</h3>
+    <div class="main-container">
+        <div class="products-container text-center">
+            <ul class="list-group">
+                {% for product in productos %}
+                 <li class="nav-item">
+                {{ product.contenido }} -({{ product.contador}})- ${{ product.total}}
+                      </li>
+                  {% endfor %}
+            </ul>
+
+                            </div>
+</body>
+</html>
+
+{%endblock%}

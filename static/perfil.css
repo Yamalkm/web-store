@@ -1,0 +1,39 @@
+body {
+    background-color: #f0f0f0; /* Color gris claro (plomo) */
+    font-family: Arial, sans-serif; /* Ejemplo de fuente */
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic-container {
+    position: relative; /* Necesario para posicionar la estrella */
+    width: 150px; /* Ancho de la imagen de perfil */
+    height: 150px; /* Alto de la imagen de perfil */
+}
+
+.profile-pic {
+    border: 5px solid #4169E1; /* Color y grosor del borde */
+    border-radius: 50%; /* Para hacer el borde redondo */
+    padding: 5px; /* Espacio entre la imagen y el borde */
+    width: 150px; /* Ancho de la imagen */
+    height: 150px; /* Alto de la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto de profundidad */
+}
+.black-star {
+   position: absolute;
+    bottom: -5px; /* Ajustar según sea necesario */
+    right: 5px; /* Ajustar según sea necesario */
+    font-size: 40px; /* Tamaño de la estrella */
+    color: gold; /* Color de la estrella */
+
+}
+
+.gold-star {
+    position: absolute;
+    bottom: -13px; /* Ajustar según sea necesario */
+    right: 0.5px; /* Ajustar según sea necesario */
+    font-size: 50px; /* Tamaño de la estrella */
+    color: blue; /* Color de la estrella */
+}

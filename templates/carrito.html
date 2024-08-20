@@ -1,0 +1,74 @@
+{% extends 'home.html' %}
+
+{% block title %}Create product {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='base.css')}}"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='carrito.css') }}">
+</head>
+<body>
+    <h3 class="text-center">Shopping Cart</h3>
+     {%if mensaje== 1%}
+                 <div class="alert alert-danger" role="alert">
+        Product out of stock
+        </div>
+                {% endif %}
+    <div class="main-container">
+        <div class="products-container">
+            <ul class="list-group">
+                {% for product in compra_lista %}
+                {% for compra in producto %}
+                    {% if product.id == compra %}
+                        <li class='list-group-item d-flex align-items-center'>
+                            <div class="product-info">
+                                {{ product.contenido }} - price: ${{ product.total }}
+                            </div>
+                            <div class="button-group">
+                                <a href='/comprando/{{ product.id }}' class="btn btn-primary me-2">Buy Now</a>
+                                <a href='/eliminar-carrito/{{ product.id }}' class="btn btn-primary  me-2">Remove</a>
+                            </div>
+                           <form action="/actualizar-contador/{{ product.id }}" class="d-flex align-items-center" method="POST">
+                                    <button class="btn btn-primary me-1" type="submit" name="change" value="-1">-</button>
+                                    <span class="me-1">{{ product.contador }}</span>
+                                    <button class="btn btn-primary" type="submit" name="change" value="1">+</button>
+                                </form>
+                            <div class="floating-box">{{ sin }}</div>
+                        </li>
+                    {% if product.stock<=product.contador%}
+                 <div class="alert alert-danger" role="alert">
+                                Overstock, only {{ product.stock }} {{ product.contenido }} left in the store
+                            </div>
+                     </li>
+                    {% endif %}
+
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                    {% if producto == []%}
+                <li class='list-group-item d-flex align-items-center'>
+                <div class="product-info text-center ">
+                                {{ texto }}
+                            </div>
+                     </li>
+                    {% endif %}
+
+            </ul>
+        </div>
+        <div class="sidebar">
+            <div class="total-container">
+                <h3>Total to pay:</h3>
+                <p class="product-info">Products ({{articulos}})</p>
+                <p id="total-precio">${{precio_total}}</p>
+                <a class="text-center button-compra" href="/venta">Buy all</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

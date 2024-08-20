@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{%block title%}Create product {%endblock%}
+
+{%block content%}
+
+<link rel="stylesheet" href="{{url_for('static', filename='base.css')}}"/>
+<div class="container">
+  <h3 class="text-center">Create product</h3>
+  <form action="/producto" method="post">
+      <div class="mb-3">
+          <label for='title' class="form-label">Product Title</label>
+          <input type="text" class="form-control" id="title" name="contenido_producto" required>
+      </div>
+      <div class="mb-3">
+          <label for='description' class="form-label">Product Description</label>
+          <textarea class="form-control" id="description" name="categoria_producto" rows="3" required></textarea>
+      </div>
+      <div class="mb-3">
+          <label for='price' class="form-label">Product price</label>
+          <input type="number" step='0.01' class="form-control" id="price" name="precio_producto" required>
+      </div>
+      <div class="mb-3">
+          <label for='price' class="form-label">Stock</label>
+          <input type="number" step='0.01' class="form-control" id="stock" name="stock_producto" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+</div>
+{%endblock%}

@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block title%}Code store - Log In{%endblock%}
+
+{%block content%}
+
+<link rel="stylesheet" href="{{url_for('static', filename='base.css')}}"/>
+<div class="container">
+  <h1 class="form-gruop">Log In</h1>
+  {% if error %}
+  <div class="alert alert-danger" role="alert">
+  {{error}}
+    </div>
+  {% endif %}
+  <form action="/login" method='post'>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" name="username" required>
+  </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <div>
+       <input type="checkbox" name="remember"> Remember me
+      </div>
+    <button type="submit" class="btn btn-primary mt-3"> Submit</button>
+    {% if error %}
+
+    <p>{{ error }}</p>
+
+    {% endif %}
+    </form>
+  </div>
+
+{%endblock%}

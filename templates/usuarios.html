@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+
+{%block title%}Code store - Home{%endblock%}
+
+{%block content%}
+
+{% if lista_de_usuarios %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='base.css')}}"/>
+<table class="table table-striped">
+  <h3 class="text-center">Customers</h3>
+  <thead>
+    <tr>
+      <th scope="col">N°</th>
+      <th scope="col">User</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Password</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for mostrar in lista_de_usuarios %}
+    <tr>
+      <th scope="row">{{mostrar.id}}</th>
+      <td>{{mostrar.username}}</td>
+      <td>{{mostrar.mail}}</td>
+      <td>{{mostrar.password}}</td>
+      <td>
+      <a class='t btn-delete' href ='/eliminar-usuario/{{mostrar.id}}' style="text-decoration:none">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-x-fill" viewBox="0 0 16 16">
+                  <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M6.854 6.146 8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 1 1 .708-.708"/>
+               </svg>
+             </a>
+      </td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{% else %}
+<p>There is no data</p>
+{% endif %}
+
+{%endblock%}
